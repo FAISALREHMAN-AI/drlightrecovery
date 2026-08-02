@@ -1,3 +1,4 @@
+google-site-verification=oO7Hoem-rJpvXV0GunmSSGj7yKZxJKU7_PBgXmsfvN4
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
