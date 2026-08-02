@@ -1,4 +1,3 @@
-google-site-verification=oO7Hoem-rJpvXV0GunmSSGj7yKZxJKU7_PBgXmsfvN4
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -46,7 +45,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicon (Website icon in browser tab) */}
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="oO7Hoem-rJpvXV0GunmSSGj7yKZxJKU7_PBgXmsfvN4" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
