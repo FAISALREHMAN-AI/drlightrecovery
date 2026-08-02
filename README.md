@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Light Recovery - UAE Vehicle Recovery Service 🚗⚡
 
-## Getting Started
+A modern, highly responsive, and premium web application built for **Dr. Light Recovery**, a specialized vehicle towing and off-road assistance service based in Dubai, UAE.
 
-First, run the development server:
+## 🌟 Features
+* **Premium UI/UX:** Dark theme with striking yellow accents matching Dubai's premium standards.
+* **Heavy Animations:** Smooth scroll, hover effects, and fade-ins powered by **Framer Motion**.
+* **Interactive FAQ Chatbot:** An automated and scrollable chatbot for quick customer answers.
+* **100% Mobile Responsive:** Custom mobile hamburger menu and mobile-optimized layouts.
+* **Floating CTAs:** Persistent WhatsApp and direct Call buttons for emergency contact.
+* **SEO Optimized:** Built with Next.js Server-Side Rendering (SSR) for fast Google ranking.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💻 Tech Stack
+* **Framework:** Next.js (React)
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **Deployment:** Vercel (CI/CD)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 How to Run Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone this repository:
+   ```bash
+   git clone [https://github.com/FAISALREHMAN-AI/drlightrecovery/](https://github.com/FAISALREHMAN-AI/drlightrecovery/)
+   Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+`npm install`
+Run the development server:
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run dev`
+Open http://localhost:3000 in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🌍 Live Demo
+`https://drlightrecovery.com`
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Step 3: GitHub Par Push Karein
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. `git add README.md`
+2. `git commit -m "Added README description"`
+3. `git push`
