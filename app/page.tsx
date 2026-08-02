@@ -5,6 +5,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { DUBAI_LOCATIONS } from './services/data';
 
 const bgImages = [
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop",
@@ -16,7 +18,7 @@ const bgImages = [
 
 export default function Home() {
   const [currentBg, setCurrentBg] = useState(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile Menu State
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,7 +32,7 @@ export default function Home() {
   ]);
 
   const faqList = [
-    { q: "How fast can you reach my location?", a: "We operate 24/7 across Dubai and aim to reach any location within 30 to 45 minutes depending on traffic." },
+    { q: "How fast can you reach my location?", a: "We operate 24/7 across Dubai and aim to reach any location within 15 to 30 minutes depending on traffic." },
     { q: "Is my sports car safe during towing?", a: "Absolutely. We use highly specialized zero-angle flatbed trucks designed specifically for low-clearance luxury and sports cars to ensure zero damage." },
     { q: "Do you provide off-road assistance?", a: "Yes! We have specialized 4x4 off-road vehicles ready to provide winching and rescue assistance if your SUV gets stuck in the sand dunes." }
   ];
@@ -87,6 +89,7 @@ export default function Home() {
         <nav className="hidden lg:flex items-center gap-8 text-sm font-bold tracking-wide">
           <a href="#home" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">HOME / DASHBOARD</a>
           <a href="#services" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">OUR SERVICES</a>
+          <a href="#locations" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">DUBAI LOCATIONS</a>
           <a href="#faq" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">FAQ / CHAT</a>
           <a href="#contact" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">CONTACT US</a>
         </nav>
@@ -129,6 +132,7 @@ export default function Home() {
           >
             <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">HOME / DASHBOARD</a>
             <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">OUR SERVICES</a>
+            <a href="#locations" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">DUBAI LOCATIONS</a>
             <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">FAQ / CHAT</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">CONTACT US</a>
             <a href="tel:+971528787066" className="mt-4 px-8 py-3 bg-yellow-500 text-black font-extrabold rounded-full shadow-[0_0_15px_rgba(234,179,8,0.5)]">📞 052 878 7066</a>
@@ -163,7 +167,7 @@ export default function Home() {
             <span className="text-yellow-500 drop-shadow-[0_0_20px_rgba(234,179,8,0.5)]">Towing Dubai</span>
           </motion.h1>
           <motion.p variants={heavyFadeInUp} className="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-medium drop-shadow-md">
-            Your 24/7 lifeline on the road. From general towing to VIP sports car recovery, we ensure safe arrival anywhere in UAE.
+            Your 24/7 lifeline on the road. From general towing to VIP sports car recovery and 4x4 desert winching, we ensure safe arrival anywhere in UAE.
           </motion.p>
           <motion.div variants={heavyFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <motion.a 
@@ -204,7 +208,7 @@ export default function Home() {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={heavyFadeInUp} className="py-20 px-6 border-b border-neutral-900">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/branded-truck.png" alt="General Car Towing" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/branded-truck.png" alt="Dr. Light Recovery General Flatbed Car Tow Truck Dubai" className="absolute inset-0 w-full h-full object-cover" />
             </motion.div>
             <div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6">General <span className="text-yellow-500">Car Towing</span></h2>
@@ -239,16 +243,16 @@ export default function Home() {
               </motion.a>
             </div>
             <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="order-1 lg:order-2 relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/sports-car.png" alt="VIP Sports Car Towing" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/sports-car.png" alt="VIP Sports Car Hydraulic Towing Dubai Dr. Light Recovery" className="absolute inset-0 w-full h-full object-cover" />
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Service 3 (Updated to Off-Road Assistance) */}
+        {/* Service 3 */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={heavyFadeInUp} className="py-20 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/desert-recovery.png" alt="Off-Road Assistance" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/desert-recovery.png" alt="4x4 Desert Dune Off-Road Vehicle Recovery Dubai Dr Light" className="absolute inset-0 w-full h-full object-cover" />
             </motion.div>
             <div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6">Off-Road <span className="text-yellow-500">Assistance</span></h2>
@@ -267,6 +271,40 @@ export default function Home() {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* SEO DUBAI LOCATIONS COVERAGE SECTION */}
+      <section id="locations" className="py-24 px-6 bg-neutral-950 border-t border-neutral-900">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+            Dubai Towing <span className="text-yellow-500">Coverage Areas</span>
+          </h2>
+          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-12">
+            Our flatbed recovery trucks are stationed across primary Dubai highways and sub-districts for 15-minute emergency response times.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {Object.values(DUBAI_LOCATIONS).map((loc) => (
+              <Link key={loc.slug} href={`/services/${loc.slug}`}>
+                <motion.div
+                  whileHover={{ scale: 1.05, borderColor: '#EAB308' }}
+                  className="p-6 bg-neutral-900 border border-neutral-800 rounded-2xl text-left transition shadow-lg cursor-pointer h-full flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-xs font-extrabold text-yellow-500 uppercase tracking-widest block mb-2">
+                      ETA: {loc.eta}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mb-2">{loc.name}</h3>
+                    <p className="text-gray-400 text-sm line-clamp-2">{loc.heroSubheadline}</p>
+                  </div>
+                  <span className="text-yellow-500 font-bold text-sm mt-4 inline-flex items-center gap-1">
+                    View Area Towing Services →
+                  </span>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* INTERACTIVE FAQ CHATBOT SECTION */}
