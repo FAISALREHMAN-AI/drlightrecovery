@@ -25,14 +25,15 @@ A modern, highly responsive, and premium web application built for **Dr. Light R
 
 
 `npm install`
-Run the development server:
+##Run the development server:
 
 
 `npm run dev`
+
 Open http://localhost:3000 in your browser.
 
-🌍 Live Demo
-`https://drlightrecovery.com`
+##🌍 Live Demo
+https://drlightrecovery.com
 
 
 ### Step 3: GitHub Par Push Karein
