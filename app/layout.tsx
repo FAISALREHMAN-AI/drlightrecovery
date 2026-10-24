@@ -89,6 +89,7 @@ const automotiveBusinessJsonLd = {
   image: "https://drlight-recovery.vercel.app/branded-truck.png",
   description:
     "24/7 Emergency car recovery, flatbed towing, sports car transport, flat tyre repair, and 4x4 desert recovery services in Dubai, UAE.",
+  email: "drlightrecovery@gmail.com",
   telephone: "+971528787066",
   priceRange: "$$",
   address: {

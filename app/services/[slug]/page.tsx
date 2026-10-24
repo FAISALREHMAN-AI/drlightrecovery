@@ -77,6 +77,7 @@ export default async function LocationPage({ params }: PageProps) {
     '@type': 'AutomotiveBusiness',
     name: `Dr. Light Recovery - ${location.name}`,
     description: location.description,
+    email: 'drlightrecovery@gmail.com',
     telephone: '+971528787066',
     url: `https://drlight-recovery.vercel.app/services/${location.slug}`,
     areaServed: {
@@ -204,6 +205,11 @@ export default async function LocationPage({ params }: PageProps) {
       {/* Footer link back */}
       <footer className="py-12 px-6 bg-neutral-950 border-t border-neutral-900 text-center text-gray-500 text-sm">
         <p>© 2026 Dr. Light Recovery Services UAE • {location.name} Sector</p>
+        <div className="mt-3">
+          <a href="mailto:drlightrecovery@gmail.com" className="text-gray-400 hover:text-yellow-500 hover:underline">
+            ✉ drlightrecovery@gmail.com
+          </a>
+        </div>
         <div className="mt-4">
           <Link href="/" className="text-yellow-500 hover:underline">
             Return to main homepage

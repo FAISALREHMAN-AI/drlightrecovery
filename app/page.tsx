@@ -376,6 +376,14 @@ export default function Home() {
                💬 WhatsApp Us
             </motion.a>
           </div>
+          <div className="mb-10">
+            <a 
+              href="mailto:drlightrecovery@gmail.com" 
+              className="text-gray-400 hover:text-yellow-500 hover:underline text-base md:text-lg inline-flex items-center gap-2 transition-colors"
+            >
+              ✉ drlightrecovery@gmail.com
+            </a>
+          </div>
           <p className="text-neutral-600 font-medium">© {new Date().getFullYear()} Dr. Light Recovery Services UAE. All rights reserved.</p>
         </div>
       </footer>
