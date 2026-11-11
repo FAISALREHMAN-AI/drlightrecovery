@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Script from 'next/script';
-import ConversionTracking from '@/components/ConversionTracking';
 import "./globals.css";
 
 // ================= ADVANCED SEO METADATA =================
@@ -89,7 +87,6 @@ const automotiveBusinessJsonLd = {
   image: "https://drlight-recovery.vercel.app/branded-truck.png",
   description:
     "24/7 Emergency car recovery, flatbed towing, sports car transport, flat tyre repair, and 4x4 desert recovery services in Dubai, UAE.",
-  email: "drlightrecovery@gmail.com",
   telephone: "+971528787066",
   priceRange: "$$",
   address: {
@@ -207,19 +204,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-black text-white">
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18385462444" strategy="afterInteractive" />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-18385462444');
-          `}
-        </Script>
-        <ConversionTracking />
-        {children}
-      </body>
+      <body className="font-sans antialiased bg-black text-white">{children}</body>
     </html>
   );
 }
