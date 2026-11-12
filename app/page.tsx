@@ -3,415 +3,696 @@
 // @ts-nocheck
 /* eslint-disable */
 
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import Link from 'next/link';
-import { DUBAI_LOCATIONS } from './services/data';
-
-const bgImages = [
-  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1611016186353-9af58c69a533?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1541457524036-79178396c21e?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1920&auto=format&fit=crop"
-];
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import StickyMobileCta from '@/components/StickyMobileCta';
 
 export default function Home() {
-  const [currentBg, setCurrentBg] = useState(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % bgImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const toggleFaq = (idx: number) => {
+    setOpenFaq(openFaq === idx ? null : idx);
+  };
 
-  const [faqChat, setFaqChat] = useState([
-    { type: 'bot', text: "Hello! Welcome to Dr. Light Recovery FAQ. Please click any question below to get an instant answer:" }
-  ]);
-
-  const faqList = [
-    { q: "How fast can you reach my location?", a: "We operate 24/7 across Dubai and aim to reach any location within 15 to 30 minutes depending on traffic." },
-    { q: "Is my sports car safe during towing?", a: "Absolutely. We use highly specialized zero-angle flatbed trucks designed specifically for low-clearance luxury and sports cars to ensure zero damage." },
-    { q: "Do you provide off-road assistance?", a: "Yes! We have specialized 4x4 off-road vehicles ready to provide winching and rescue assistance if your SUV gets stuck in the sand dunes." }
+  const services = [
+    {
+      title: "Car Recovery",
+      href: "/car-recovery-dubai",
+      desc: "Reliable car recovery across Dubai for vehicles that cannot be driven or need to be safely transported. Share your location and vehicle details with our team to arrange the appropriate recovery service.",
+      badge: "24/7 Service"
+    },
+    {
+      title: "Car Towing",
+      href: "/car-towing-dubai",
+      desc: "Our car towing service in Dubai helps move vehicles safely from their current location to a workshop, home, or another required destination.",
+      badge: "Safe Transport"
+    },
+    {
+      title: "Breakdown Recovery",
+      href: "/breakdown-recovery-dubai",
+      desc: "If your vehicle breaks down and you cannot continue your journey, our breakdown recovery service in Dubai can help arrange safe transportation for your vehicle.",
+      badge: "Quick Dispatch"
+    },
+    {
+      title: "Emergency Car Recovery",
+      href: "/emergency-car-recovery-dubai",
+      desc: "Vehicle problems can happen unexpectedly. Our 24/7 emergency car recovery service in Dubai helps customers arrange professional recovery when their vehicle cannot safely continue.",
+      badge: "Urgent Response"
+    },
+    {
+      title: "Luxury & Sports Car Towing",
+      href: "/luxury-sports-car-towing-dubai",
+      desc: "Luxury and sports vehicles require careful handling during transportation. Our luxury car towing service in Dubai focuses on secure handling and suitable vehicle transportation.",
+      badge: "Zero-Angle Flatbed"
+    },
+    {
+      title: "Motorcycle Recovery",
+      href: "/motorbike-recovery-dubai",
+      desc: "If your motorcycle cannot be ridden or needs to be transported, our motorcycle recovery service in Dubai can help move your bike safely.",
+      badge: "Specialized Cradle"
+    },
+    {
+      title: "Flatbed Towing",
+      href: "/car-towing-dubai",
+      desc: "Flatbed towing provides a secure way to transport vehicles when they need to be moved without being driven. Our recovery team can arrange suitable vehicle transportation based on your vehicle and recovery requirements.",
+      badge: "Hydraulic Beds"
+    }
   ];
 
-  const handleFaqClick = (faq: { q: string; a: string }) => {
-    setFaqChat(prev => [
-      ...prev, 
-      { type: 'user', text: faq.q },
-      { type: 'bot', text: faq.a }
-    ]);
-  };
+  const coverageAreas = [
+    "Downtown Dubai", "Dubai Marina", "Jumeirah", "Business Bay", "Deira", "Bur Dubai",
+    "Al Barsha", "Al Quoz", "Umm Suqeim", "Jumeirah Village Circle (JVC)", "Dubai Hills Estate",
+    "Dubai Sports City", "International City", "Dubai Silicon Oasis", "Mirdif", "Al Qusais",
+    "Al Nahda Dubai", "Jebel Ali", "Al Furjan", "Dubai South"
+  ];
 
-  const chatEndRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    if (faqChat.length > 1) { 
-      chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  const faqs = [
+    {
+      q: "How much does car recovery cost in Dubai?",
+      a: "The cost depends on factors such as your vehicle type, location, recovery distance, and the type of service required. Contact us with your vehicle and location details for a recovery quote."
+    },
+    {
+      q: "Are you available 24/7 for car recovery in Dubai?",
+      a: "Yes, DR Light Recovery provides car recovery and towing services 24/7 across Dubai."
+    },
+    {
+      q: "How quickly can a recovery truck reach my location?",
+      a: "Response time depends on your location, traffic conditions, and the type of recovery required. Share your exact location with our team so we can assess the situation and arrange the appropriate service."
+    },
+    {
+      q: "What areas of Dubai do you cover?",
+      a: "We provide car recovery and towing services across Dubai, including residential communities, business districts, and major roads."
+    },
+    {
+      q: "What types of vehicles can you recover?",
+      a: "We provide recovery for cars, SUVs, 4x4s, luxury and sports cars, and motorcycles, depending on the recovery requirements."
+    },
+    {
+      q: "What should I do if my car breaks down in Dubai?",
+      a: "Move to a safe location if possible, switch on your hazard lights, and contact DR Light Recovery. Share your location, vehicle type, and details about the problem."
+    },
+    {
+      q: "How do I request a car recovery service?",
+      a: "Call or WhatsApp DR Light Recovery and provide your current location, vehicle type, and the reason recovery is required."
+    },
+    {
+      q: "Can you recover a car after an accident?",
+      a: "Yes, we provide accident vehicle recovery across Dubai for vehicles that cannot be safely driven after an accident."
+    },
+    {
+      q: "Can you tow luxury and sports cars?",
+      a: "Yes. We provide luxury and sports car towing with careful vehicle handling during transportation."
+    },
+    {
+      q: "Can you tow a vehicle from a parking garage?",
+      a: "If your vehicle needs to be moved from a parking facility, contact us with the location and vehicle details so we can assess the recovery requirements and arrange suitable towing where accessible."
     }
-  }, [faqChat]);
-
-  const heavyFadeInUp: any = {
-    hidden: { opacity: 0, y: 100, scale: 0.8 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", bounce: 0.5, duration: 1.2 } }
-  };
-
-  const staggerContainer: any = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.4, delayChildren: 0.3 } }
-  };
-
-  const cardHoverEffect: any = {
-    rest: { scale: 1, rotate: 0, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
-    hover: { scale: 1.05, rotate: 2, boxShadow: "0px 20px 40px rgba(234,179,8,0.3)", transition: { type: "spring", bounce: 0.6 } }
-  };
+  ];
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans overflow-x-hidden relative scroll-smooth">
-      
-      {/* HEADER */}
-      <motion.header 
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", bounce: 0.4, duration: 1 }}
-        className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-center bg-gradient-to-b from-black/95 via-black/80 to-transparent backdrop-blur-md"
-      >
-        <motion.div 
-          whileHover={{ scale: 1.1, rotate: -2 }}
-          className="text-2xl md:text-3xl font-extrabold tracking-widest text-white shadow-black drop-shadow-2xl flex items-center gap-2 cursor-pointer transition-transform duration-300"
-        >
-          DR. LIGHT <span className="text-yellow-500">RECOVERY</span>
-        </motion.div>
-        
-        {/* DESKTOP NAVIGATION */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-bold tracking-wide">
-          <a href="#home" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">HOME / DASHBOARD</a>
-          <a href="#services" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">OUR SERVICES</a>
-          <a href="#locations" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">DUBAI LOCATIONS</a>
-          <a href="#faq" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">FAQ / CHAT</a>
-          <a href="#contact" className="hover:text-yellow-500 hover:scale-110 transition-all duration-300">CONTACT US</a>
-        </nav>
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-yellow-500 selection:text-black">
+      <Header />
 
-        {/* DESKTOP CALL BUTTON */}
-        <div className="hidden lg:flex items-center gap-4">
-          <motion.a 
-            whileHover={{ scale: 1.15, boxShadow: "0px 0px 25px rgba(234,179,8,0.8)" }}
-            whileTap={{ scale: 0.9 }}
-            href="tel:+971528787066" 
-            className="flex items-center gap-2 px-6 py-2 bg-yellow-500 text-black font-extrabold rounded-full transition shadow-[0_0_15px_rgba(234,179,8,0.5)]"
-          >
-            📞 052 878 7066
-          </motion.a>
-        </div>
-
-        {/* MOBILE MENU HAMBURGER BUTTON */}
-        <button 
-          className="lg:hidden text-white hover:text-yellow-500 transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-            {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
-            )}
-          </svg>
-        </button>
-      </motion.header>
-
-      {/* MOBILE MENU DROPDOWN */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            className="fixed top-[88px] left-0 w-full bg-black/95 border-b-2 border-yellow-500 z-40 flex flex-col items-center py-8 gap-6 backdrop-blur-lg lg:hidden"
-          >
-            <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">HOME / DASHBOARD</a>
-            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">OUR SERVICES</a>
-            <a href="#locations" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">DUBAI LOCATIONS</a>
-            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">FAQ / CHAT</a>
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold hover:text-yellow-500 transition-colors">CONTACT US</a>
-            <a href="tel:+971528787066" className="mt-4 px-8 py-3 bg-yellow-500 text-black font-extrabold rounded-full shadow-[0_0_15px_rgba(234,179,8,0.5)]">📞 052 878 7066</a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* HERO SECTION */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentBg}
-            initial={{ opacity: 0, scale: 1.3, rotate: -3 }}
-            animate={{ opacity: 0.5, scale: 1, rotate: 0 }}
-            exit={{ opacity: 0, scale: 1.2, rotate: 3 }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${bgImages[currentBg]}')` }}
-          />
-        </AnimatePresence>
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black opacity-100"></div>
-
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20"
-        >
-          <motion.h1 variants={heavyFadeInUp} className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-white mb-6 leading-tight tracking-wide drop-shadow-2xl uppercase">
-            Fast &amp; Reliable <br />
-            <span className="text-yellow-500 drop-shadow-[0_0_20px_rgba(234,179,8,0.5)]">Towing Dubai</span>
-          </motion.h1>
-          <motion.p variants={heavyFadeInUp} className="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-medium drop-shadow-md">
-            Your 24/7 lifeline on the road. From general towing to VIP sports car recovery and 4x4 desert winching, we ensure safe arrival anywhere in UAE.
-          </motion.p>
-          <motion.div variants={heavyFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <motion.a 
-              whileHover={{ scale: 1.15, boxShadow: "0px 0px 30px rgba(234,179,8,0.8)" }}
-              whileTap={{ scale: 0.9 }}
-              href="tel:+971528787066" 
-              className="w-full sm:w-auto px-10 py-5 bg-yellow-500 text-black font-extrabold text-xl rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.5)]"
-            >
-              📞 Call Now: 052 878 7066
-            </motion.a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* PROMO VIDEO */}
-      <motion.section 
-        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={heavyFadeInUp}
-        className="py-20 px-6 bg-neutral-900 border-t border-neutral-800 text-center"
-      >
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">See Our <span className="text-yellow-500">Fleet in Action</span></h2>
-          <motion.div 
-            whileHover={{ scale: 1.02, boxShadow: "0px 0px 40px rgba(234,179,8,0.4)" }}
-            className="relative w-full aspect-video bg-black rounded-3xl overflow-hidden border-2 border-yellow-500 shadow-2xl flex items-center justify-center mt-12 transition-all duration-500"
-          >
-            <video className="w-full h-full object-cover" controls autoPlay loop muted playsInline>
-              <source src="/my-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* OUR SERVICES */}
-      <section id="services" className="bg-black pt-10 overflow-hidden">
-        
-        {/* Service 1 */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={heavyFadeInUp} className="py-20 px-6 border-b border-neutral-900">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/branded-truck.png" alt="Dr. Light Recovery General Flatbed Car Tow Truck Dubai" className="absolute inset-0 w-full h-full object-cover" />
-            </motion.div>
-            <div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6">General <span className="text-yellow-500">Car Towing</span></h2>
-              <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed">
-                No matter where you are in Dubai, our professional branded white flatbed tow trucks are ready. We ensure safe, scratch-free transportation of your everyday vehicles.
-              </p>
-              <motion.a 
-                whileHover={{ scale: 1.1, x: 10 }} 
-                href="tel:+971528787066" 
-                className="inline-block px-8 py-4 bg-white text-black font-extrabold rounded-lg hover:bg-gray-200 transition shadow-xl"
-              >
-                📞 Request Tow Truck
-              </motion.a>
+      <main className="pt-20">
+        {/* ================= 1. HERO SECTION ================= */}
+        <section className="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 border-b border-neutral-900">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent pointer-events-none" />
+          
+          <div className="relative max-w-4xl mx-auto text-center py-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+              24/7 Car Recovery Dubai
             </div>
-          </div>
-        </motion.div>
 
-        {/* Service 2 */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={heavyFadeInUp} className="py-20 px-6 bg-neutral-950 border-b border-neutral-900">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-4xl md:text-6xl font-bold mb-6">VIP &amp; <span className="text-yellow-500">Luxury Car Towing</span></h2>
-              <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed">
-                Low-clearance supercars and luxury vehicles require specialized zero-angle hydraulic flatbeds. We guarantee premium, highly secure handling.
-              </p>
-              <motion.a 
-                whileHover={{ scale: 1.1, x: 10 }}
-                href="tel:+971528787066" 
-                className="inline-block px-8 py-4 bg-yellow-500 text-black font-extrabold rounded-lg hover:bg-yellow-400 transition shadow-[0_0_20px_rgba(234,179,8,0.5)]"
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+              24/7 Car Recovery Service in <span className="text-yellow-500">Dubai</span>
+            </h1>
+
+            <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+              Need reliable car recovery in Dubai? DR Light Recovery provides professional car recovery and towing services across Dubai. Whether your vehicle has broken down, needs towing, or requires safe transportation, our team is available 24/7 to help.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <a
+                href="tel:+971528787066"
+                className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl shadow-yellow-500/20 flex items-center justify-center gap-2 active:scale-95"
               >
-                📞 Call VIP Team
-              </motion.a>
-            </div>
-            <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="order-1 lg:order-2 relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/sports-car.png" alt="VIP Sports Car Hydraulic Towing Dubai Dr. Light Recovery" className="absolute inset-0 w-full h-full object-cover" />
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Service 3 */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={heavyFadeInUp} className="py-20 px-6">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={cardHoverEffect} initial="rest" whileHover="hover" className="relative h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden border-2 border-neutral-800 bg-neutral-900 cursor-pointer">
-              <img src="/desert-recovery.png" alt="4x4 Desert Dune Off-Road Vehicle Recovery Dubai Dr Light" className="absolute inset-0 w-full h-full object-cover" />
-            </motion.div>
-            <div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6">Off-Road <span className="text-yellow-500">Assistance</span></h2>
-              <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed">
-                Stuck in the deep sand dunes or facing off-road troubles? Our specialized 4x4 assistance vehicles and expert winching team are ready to rescue your SUV and get you back on track safely.
-              </p>
-              <motion.a 
-                whileHover={{ scale: 1.1, x: 10 }}
-                href="https://wa.me/971528787066" 
-                target="_blank" 
+                <span>📞</span>
+                <span>Call Now: +971 52 878 7066</span>
+              </a>
+              <a
+                href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20vehicle%20recovery%20in%20Dubai."
+                target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-4 bg-green-500 text-white font-extrabold rounded-lg hover:bg-green-400 transition shadow-[0_0_20px_rgba(34,197,94,0.5)]"
+                className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95"
               >
-                💬 Send GPS Pin
-              </motion.a>
+                <span>💬</span>
+                <span>WhatsApp Now</span>
+              </a>
+            </div>
+
+            {/* Supporting line */}
+            <p className="text-xs sm:text-sm text-neutral-400 font-semibold tracking-wide">
+              24/7 Availability • Dubai-Wide Coverage • Professional Vehicle Handling
+            </p>
+          </div>
+        </section>
+
+        {/* ================= 2. RELIABLE CAR RECOVERY ACROSS DUBAI ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Reliable Car Recovery Across Dubai
+            </h2>
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+              When your vehicle cannot safely continue its journey, getting professional recovery support can make the situation easier. DR Light Recovery provides reliable car recovery and towing services across Dubai, helping with breakdowns, vehicle transportation and other recovery needs. Share your location and vehicle details with our team to get the appropriate recovery assistance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-yellow-500/40 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold mb-4 text-lg">
+                ⏱
+              </div>
+              <h3 className="text-white font-bold text-base mb-2">24/7 Availability</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Vehicle problems can happen at any time. Our recovery service is available 24/7 across Dubai.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-yellow-500/40 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold mb-4 text-lg">
+                📍
+              </div>
+              <h3 className="text-white font-bold text-base mb-2">Dubai-Wide Coverage</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                We provide comprehensive car recovery and towing services throughout all districts of Dubai.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-yellow-500/40 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold mb-4 text-lg">
+                🛡
+              </div>
+              <h3 className="text-white font-bold text-base mb-2">Professional Handling</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                We focus on careful and secure handling during vehicle loading, recovery, and transportation.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-yellow-500/40 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold mb-4 text-lg">
+                ⚡
+              </div>
+              <h3 className="text-white font-bold text-base mb-2">Simple Assistance</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Call or WhatsApp us, share your location and vehicle details, and we&apos;ll guide you through the process.
+              </p>
             </div>
           </div>
-        </motion.div>
-      </section>
+        </section>
 
-      {/* SEO DUBAI LOCATIONS COVERAGE SECTION */}
-      <section id="locations" className="py-24 px-6 bg-neutral-950 border-t border-neutral-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
-            Dubai Towing <span className="text-yellow-500">Coverage Areas</span>
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-12">
-            Our flatbed recovery trucks are stationed across primary Dubai highways and sub-districts for 15-minute emergency response times.
-          </p>
+        {/* ================= 3. OUR CAR RECOVERY & TOWING SERVICES ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-y border-neutral-900">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+                Our Car Recovery & Towing Services in Dubai
+              </h2>
+              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                We provide reliable vehicle recovery and towing services across Dubai for different recovery situations. Whether your car has broken down, needs towing, or needs to be transported to another location, our team can help arrange the appropriate recovery service.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {Object.values(DUBAI_LOCATIONS).map((loc) => (
-              <Link key={loc.slug} href={`/services/${loc.slug}`}>
-                <motion.div
-                  whileHover={{ scale: 1.05, borderColor: '#EAB308' }}
-                  className="p-6 bg-neutral-900 border border-neutral-800 rounded-2xl text-left transition shadow-lg cursor-pointer h-full flex flex-col justify-between"
+            {/* Note: PRD rule 14 specifically says NO individual contact buttons inside cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((srv, idx) => (
+                <div
+                  key={idx}
+                  className="p-7 rounded-2xl bg-black border border-neutral-800 hover:border-yellow-500/50 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <span className="text-xs font-extrabold text-yellow-500 uppercase tracking-widest block mb-2">
-                      ETA: {loc.eta}
-                    </span>
-                    <h3 className="text-xl font-bold text-white mb-2">{loc.name}</h3>
-                    <p className="text-gray-400 text-sm line-clamp-2">{loc.heroSubheadline}</p>
-                  </div>
-                  <span className="text-yellow-500 font-bold text-sm mt-4 inline-flex items-center gap-1">
-                    View Area Towing Services →
-                  </span>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INTERACTIVE FAQ CHATBOT SECTION */}
-      <motion.section id="faq" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={heavyFadeInUp} className="py-24 px-6 bg-neutral-900 border-t border-neutral-800">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-center drop-shadow-xl">Have Questions? <span className="text-yellow-500">Ask Us</span></h2>
-          <p className="text-gray-400 text-lg text-center mb-12">Click on any question below to get instant answers from our FAQ bot.</p>
-          
-          <motion.div 
-            whileHover={{ boxShadow: "0px 0px 50px rgba(0,0,0,0.9)" }}
-            className="bg-black border-2 border-neutral-800 rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] flex flex-col h-[550px] transition-shadow duration-500"
-          >
-            <div className="flex-1 p-6 overflow-y-auto space-y-6">
-              <AnimatePresence>
-                {faqChat.map((msg, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, x: msg.type === 'user' ? 50 : -50, scale: 0.5 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ type: "spring", bounce: 0.6, duration: 0.8 }}
-                    className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div className={`max-w-[85%] p-4 md:p-5 rounded-3xl text-sm md:text-lg shadow-2xl ${msg.type === 'user' ? 'bg-yellow-500 text-black rounded-br-none font-bold' : 'bg-neutral-800 text-white rounded-bl-none font-medium'}`}>
-                      {msg.text}
+                    <div className="inline-block px-2.5 py-1 rounded bg-neutral-900 text-yellow-400 text-[11px] font-bold uppercase tracking-wider mb-4">
+                      {srv.badge}
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-              <div ref={chatEndRef} />
-            </div>
-
-            <div className="p-4 md:p-5 bg-neutral-950 border-t-2 border-neutral-800 flex flex-wrap gap-3 justify-center">
-              {faqList.map((faq, idx) => (
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  key={idx}
-                  onClick={() => handleFaqClick(faq)}
-                  className="bg-neutral-800 hover:bg-yellow-500 hover:text-black text-gray-300 text-xs md:text-sm px-4 py-2 md:px-5 md:py-3 rounded-full transition-colors border border-neutral-700 font-bold shadow-lg"
-                >
-                  {faq.q}
-                </motion.button>
+                    <h3 className="text-lg font-bold text-white mb-3 hover:text-yellow-400 transition-colors">
+                      <Link href={srv.href}>{srv.title}</Link>
+                    </h3>
+                    <p className="text-neutral-400 text-xs leading-relaxed mb-4">
+                      {srv.desc}
+                    </p>
+                  </div>
+                  <Link
+                    href={srv.href}
+                    className="inline-flex items-center text-xs font-semibold text-yellow-500 hover:text-yellow-400 tracking-wider uppercase group"
+                  >
+                    <span>Read Details</span>
+                    <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                  </Link>
+                </div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* FOOTER */}
-      <footer id="contact" className="bg-black pt-20 pb-28 border-t border-neutral-900">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Contact <span className="text-yellow-500">Dr. Light Recovery</span></h2>
-          <p className="text-gray-400 text-lg mb-10">We are available 24/7 for all your emergency vehicle recovery needs in Dubai.</p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
-            <motion.a 
-              whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(234,179,8,0.5)" }}
-              href="tel:+971528787066" 
-              className="w-full sm:w-auto text-xl md:text-2xl font-extrabold bg-neutral-900 px-8 md:px-10 py-5 md:py-6 rounded-2xl border-2 border-neutral-800 hover:border-yellow-500 hover:text-yellow-500 transition shadow-2xl flex items-center justify-center gap-3"
-            >
-               📞 Call: 052 878 7066
-            </motion.a>
-            <motion.a 
-              whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(34,197,94,0.5)" }}
-              href="https://wa.me/971528787066" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto text-xl md:text-2xl font-extrabold bg-neutral-900 px-8 md:px-10 py-5 md:py-6 rounded-2xl border-2 border-neutral-800 hover:border-green-500 hover:text-green-500 transition shadow-2xl flex items-center justify-center gap-3"
-            >
-               💬 WhatsApp Us
-            </motion.a>
           </div>
-          <p className="text-neutral-600 font-medium">© {new Date().getFullYear()} Dr. Light Recovery Services UAE. All rights reserved.</p>
-        </div>
-      </footer>
+        </section>
 
-      {/* GLOBAL FLOATING ACTION BUTTONS */}
-      <div className="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50 flex flex-col items-end gap-4 md:gap-6">
-        
-        <motion.a 
-          initial={{ scale: 0, y: 100 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ type: "spring", bounce: 0.6, duration: 1.5, delay: 1 }}
-          href="https://wa.me/971528787066" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(34,197,94,0.6)] hover:scale-125 transition-transform group relative"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" className="md:w-8 md:h-8" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          <span className="hidden md:block absolute right-20 bg-black text-white text-base px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border-2 border-neutral-800 font-extrabold shadow-2xl">
-            WhatsApp Us
-          </span>
-        </motion.a>
+        {/* ================= 4. CAR RECOVERY NEAR ME ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-950 to-black border border-neutral-800 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Car Recovery Near Me in Dubai
+            </h2>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto mb-4 leading-relaxed">
+              Looking for car recovery near me? DR Light Recovery provides professional car recovery and towing services across Dubai. Whether your vehicle is at home, work, a parking facility, or on the road, share your current location and vehicle details with our team so we can help arrange the appropriate recovery service.
+            </p>
+            <p className="text-neutral-400 text-xs sm:text-sm max-w-xl mx-auto mb-8">
+              Our recovery near me service is designed to make it easier to get professional vehicle recovery wherever you are in Dubai.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="tel:+971528787066"
+                className="w-full sm:w-auto px-7 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              >
+                Find Car Recovery Near Me
+              </a>
+              <a
+                href="https://wa.me/971528787066?text=I%20need%20car%20recovery%20near%20me%20in%20Dubai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-7 py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors"
+              >
+                Share Location on WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
 
-        <motion.a 
-          initial={{ scale: 0, y: 100 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ type: "spring", bounce: 0.6, duration: 1.5, delay: 1.2 }}
-          href="tel:+971528787066" 
-          className="w-16 h-16 md:w-20 md:h-20 bg-yellow-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:scale-125 transition-transform group relative"
-        >
-           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="md:w-9 md:h-9" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-           <span className="hidden md:block absolute right-24 bg-black text-white text-base px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border-2 border-neutral-800 font-extrabold shadow-2xl">
-            Call Us Now
-          </span>
-        </motion.a>
-      </div>
+        {/* ================= 5. TOWING SERVICES ACROSS DUBAI ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+                Towing Services Across Dubai
+              </h2>
+              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                Need a tow truck for a vehicle that cannot be driven? DR Light Recovery provides professional towing services across Dubai for breakdowns, vehicle transportation, and other towing requirements. Whether you&apos;re searching for car towing near me or a reliable towing service in another part of Dubai, contact our team with your location and vehicle details.
+              </p>
+            </div>
 
-    </main>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <div className="p-7 rounded-2xl bg-black border border-neutral-800">
+                <h3 className="text-lg font-bold text-white mb-3">Car Towing Near Me</h3>
+                <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                  When your vehicle needs to be moved from its current location, our team can help arrange the appropriate towing service based on your vehicle and destination.
+                </p>
+              </div>
+              <div className="p-7 rounded-2xl bg-black border border-neutral-800">
+                <h3 className="text-lg font-bold text-white mb-3">Tow Truck Service</h3>
+                <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                  Tell us where your vehicle is located and what type of vehicle needs recovery. We&apos;ll help determine the appropriate towing solution for your situation.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="tel:+971528787066"
+                className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              >
+                Find a Tow Truck Near Me
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 6. 24/7 EMERGENCY CAR RECOVERY ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-block px-3 py-1 rounded bg-red-500/10 text-red-400 text-xs font-bold uppercase tracking-widest mb-3">
+              Urgent Assistance
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              24/7 Emergency Car Recovery in Dubai
+            </h2>
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+              Car trouble can happen at any time. DR Light Recovery provides 24/7 emergency car recovery across Dubai, helping you arrange professional vehicle recovery when you cannot continue your journey. Contact us, share your location and vehicle details, and our team will help with the next steps.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-base mb-2">Available 24/7</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Contact us whenever you need emergency vehicle recovery, day or night.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-base mb-2">Across Dubai</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                We provide rapid emergency recovery services throughout the emirate of Dubai.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-base mb-2">Simple Recovery Process</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Share your location, vehicle type, and situation so the appropriate recovery service can be arranged.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="tel:+971528787066"
+              className="inline-block px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-red-600/20"
+            >
+              Call for Emergency Recovery
+            </a>
+          </div>
+        </section>
+
+        {/* ================= 7. WHAT SHOULD YOU DO IF YOUR CAR BREAKS DOWN ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-y border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+                What Should You Do If Your Car Breaks Down in Dubai?
+              </h2>
+              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                If your car breaks down, your safety should come first. If it is safe to do so, move your vehicle away from moving traffic, switch on your hazard lights, and stay in a safe position. Contact DR Light Recovery and provide your location, vehicle type, and basic information about the problem.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-2xl mb-3 block">01</span>
+                <h3 className="text-white font-bold text-sm mb-2">Move to a Safe Location</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  If possible, safely steer or move your vehicle away from moving highway traffic.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-2xl mb-3 block">02</span>
+                <h3 className="text-white font-bold text-sm mb-2">Turn On Hazard Lights</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Make your vehicle immediately visible to other oncoming road users.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-2xl mb-3 block">03</span>
+                <h3 className="text-white font-bold text-sm mb-2">Share Your Location</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Provide your exact GPS pin and vehicle details when contacting our dispatch.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-2xl mb-3 block">04</span>
+                <h3 className="text-white font-bold text-sm mb-2">Arrange Recovery</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Our team determines the appropriate recovery or towing solution for your vehicle.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="tel:+971528787066"
+                className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              >
+                Get Breakdown Recovery
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 8. CAR RECOVERY SERVICES ACROSS DUBAI (GEO) ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Car Recovery Services Across Dubai
+            </h2>
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mb-6">
+              DR Light Recovery provides car recovery and towing services across Dubai. From residential communities and business districts to major roads and surrounding areas, our team can assist with vehicle recovery throughout the city.
+            </p>
+            <p className="text-xs text-yellow-500 font-bold uppercase tracking-widest">
+              Areas We Cover
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-10">
+            {coverageAreas.map((area, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-center text-xs text-neutral-300 font-medium hover:border-yellow-500/40 transition-colors"
+              >
+                {area}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-neutral-400 mb-6">
+              Need recovery in another part of Dubai? Share your exact location with our team and we&apos;ll assess the recovery requirements.
+            </p>
+            <a
+              href="tel:+971528787066"
+              className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+            >
+              Request Recovery
+            </a>
+          </div>
+        </section>
+
+        {/* ================= 9. HOW OUR CAR RECOVERY SERVICE WORKS ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+                How Our Car Recovery Service Works
+              </h2>
+              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                Need car recovery in Dubai but not sure what to do? Our process is simple. Contact DR Light Recovery, provide your location and vehicle details, and our team will help arrange the appropriate recovery service.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-xl mb-2 block">Step 1</span>
+                <h3 className="text-white font-bold text-sm mb-2">Contact Us</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Call or WhatsApp and tell us what happened to your vehicle.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-xl mb-2 block">Step 2</span>
+                <h3 className="text-white font-bold text-sm mb-2">Share Your Location</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Provide your current GPS location and basic vehicle details.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-xl mb-2 block">Step 3</span>
+                <h3 className="text-white font-bold text-sm mb-2">Arrange Recovery</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Our team will help determine the appropriate recovery or towing vehicle.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <span className="text-yellow-500 font-black text-xl mb-2 block">Step 4</span>
+                <h3 className="text-white font-bold text-sm mb-2">Transport Your Vehicle</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Your vehicle is handled carefully and transported to the required destination.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="tel:+971528787066"
+                className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              >
+                Request Car Recovery
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 10. HOW MUCH DOES CAR RECOVERY COST IN DUBAI ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              How Much Does Car Recovery Cost in Dubai?
+            </h2>
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+              The cost of car recovery in Dubai can vary depending on your vehicle type, pickup location, recovery distance, and the type of service required. Contact DR Light Recovery with your vehicle and location details so our team can understand your situation and provide the appropriate recovery option.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-sm mb-2">Vehicle Type</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Different vehicles (sedans, SUVs, luxury low-clearance) may require different recovery equipment.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-sm mb-2">Recovery Distance</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                The distance between the pickup location and your destination workshop or garage affects service requirements.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-sm mb-2">Pickup Location</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Your vehicle&apos;s location (open highway, basement parking, or side street) influences the recovery approach.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
+              <h3 className="text-white font-bold text-sm mb-2">Type of Recovery</h3>
+              <p className="text-neutral-400 text-xs leading-relaxed">
+                Different recovery situations (rolling breakdown vs accident damage) require specialized handling.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="tel:+971528787066"
+              className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+            >
+              Get a Recovery Quote
+            </a>
+          </div>
+        </section>
+
+        {/* ================= 11. WHAT TYPES OF VEHICLES CAN WE RECOVER ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+                What Types of Vehicles Can We Recover?
+              </h2>
+              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                DR Light Recovery provides recovery and towing services for different types of vehicles across Dubai. Contact us with your vehicle details so we can understand your requirements and arrange the appropriate recovery solution.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <div className="text-2xl mb-3">🚗</div>
+                <h3 className="text-white font-bold text-base mb-2">Cars</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Recovery and towing for everyday sedans and hatchbacks that need to be transported safely.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <div className="text-2xl mb-3">🚙</div>
+                <h3 className="text-white font-bold text-base mb-2">SUVs & 4x4s</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Suitable recovery solutions and heavy-duty towing equipment for larger vehicles based on the situation.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <div className="text-2xl mb-3">🏎</div>
+                <h3 className="text-white font-bold text-base mb-2">Luxury & Sports Cars</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Careful zero-angle towing and transportation for premium, low-clearance performance vehicles.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black border border-neutral-800">
+                <div className="text-2xl mb-3">🏍</div>
+                <h3 className="text-white font-bold text-base mb-2">Motorcycles</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed">
+                  Recovery and transportation for motorcycles, scooters, and bikes that cannot be ridden or need to be moved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 12. FREQUENTLY ASKED QUESTIONS ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Frequently Asked Questions About Car Recovery in Dubai
+            </h2>
+            <p className="text-neutral-400 text-sm">
+              Common questions about our vehicle recovery, towing processes, and Dubai coverage.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-neutral-950 border border-neutral-800 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full p-5 text-left flex justify-between items-center gap-4 text-white hover:text-yellow-400 transition-colors"
+                  >
+                    <span className="font-bold text-sm sm:text-base">{faq.q}</span>
+                    <span className="text-xl text-yellow-500 font-bold">{isOpen ? "−" : "+"}</span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-1 text-neutral-400 text-xs sm:text-sm leading-relaxed border-t border-neutral-900">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ================= 13. FINAL CTA ================= */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+              Need Car Recovery in Dubai?
+            </h2>
+            <p className="text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+              Whether your vehicle has broken down, needs towing, or requires safe transportation, DR Light Recovery is available 24/7 across Dubai. Contact our team, share your location and vehicle details, and get the recovery process started.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <a
+                href="tel:+971528787066"
+                className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
+              >
+                📞 Call Now: +971 52 878 7066
+              </a>
+              <a
+                href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20vehicle%20recovery%20in%20Dubai."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
+              >
+                💬 WhatsApp Now
+              </a>
+            </div>
+
+            <p className="text-xs sm:text-sm text-neutral-500 font-semibold tracking-wide">
+              24/7 Car Recovery • Towing Services • Dubai-Wide Coverage
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <StickyMobileCta />
+    </div>
   );
 }

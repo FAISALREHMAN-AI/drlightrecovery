@@ -3,53 +3,49 @@ import "./globals.css";
 
 // ================= ADVANCED SEO METADATA =================
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drlight-recovery.vercel.app"),
+  metadataBase: new URL("https://www.drlightrecovery.com"),
   title: {
-    default: "Dr. Light Recovery | 24/7 Car Towing Service in Dubai",
-    template: "%s | Dr. Light Recovery Dubai",
+    default: "DR Light Recovery | 24/7 Car Recovery & Towing in Dubai",
+    template: "%s | DR Light Recovery Dubai",
   },
   description:
-    "Fast and reliable 24/7 emergency vehicle recovery, flat tyre repair, desert recovery, and battery jumpstart services anywhere in Dubai. Call Dr. Light Recovery now!",
+    "24/7 emergency car recovery, towing service, breakdown assistance, luxury car transport, and motorbike recovery across Dubai. Available 24/7. Call +971 52 878 7066.",
   keywords: [
-    "Dr Light Recovery",
-    "Dr. Light Recovery Dubai",
+    "DR Light Recovery",
+    "Car Recovery Dubai",
+    "Emergency car recovery Dubai",
+    "Car Towing Service Dubai",
+    "Car Breakdown Service Dubai",
+    "Luxury Car Recovery Dubai",
+    "Motorbike Recovery Dubai",
     "Car Towing Near Me",
-    "Battery Jumpstart Dubai",
-    "Emergency car recovery Dubai 24/7",
-    "Best car towing service in Dubai",
-    "Flat tyre repair Dubai",
-    "Sports car recovery service Dubai",
-    "Fast vehicle towing Dubai",
-    "Towing Sheikh Zayed Road",
-    "Dubai Marina car towing",
-    "Desert recovery Dubai 4x4",
-    "Downtown Dubai car recovery",
-    "Roadside assistance Dubai",
+    "Recovery Near Me Dubai",
+    "Flatbed Towing Dubai",
   ],
-  authors: [{ name: "Dr. Light Recovery", url: "https://drlight-recovery.vercel.app" }],
-  creator: "Dr. Light Recovery",
-  publisher: "Dr. Light Recovery",
+  authors: [{ name: "DR Light Recovery", url: "https://www.drlightrecovery.com" }],
+  creator: "DR Light Recovery",
+  publisher: "DR Light Recovery",
   formatDetection: {
     telephone: true,
   },
   alternates: {
-    canonical: "https://drlight-recovery.vercel.app",
+    canonical: "https://www.drlightrecovery.com",
     languages: {
-      "en-AE": "https://drlight-recovery.vercel.app",
+      "en-AE": "https://www.drlightrecovery.com",
     },
   },
   openGraph: {
-    title: "Dr. Light Recovery | 24/7 Fast Car Towing in Dubai",
+    title: "DR Light Recovery | 24/7 Car Recovery & Towing in Dubai",
     description:
-      "Stranded on the road? We provide 24/7 emergency towing, flat tyre repair, and roadside assistance anywhere in Dubai.",
-    url: "https://drlight-recovery.vercel.app",
-    siteName: "Dr. Light Recovery",
+      "Need car recovery or towing in Dubai? DR Light Recovery provides 24/7 recovery for breakdowns, accidents, luxury cars, and motorcycles across Dubai.",
+    url: "https://www.drlightrecovery.com",
+    siteName: "DR Light Recovery",
     images: [
       {
         url: "/branded-truck.png",
         width: 1200,
         height: 630,
-        alt: "Dr. Light Recovery Branded Tow Truck in Dubai",
+        alt: "DR Light Recovery Tow Truck in Dubai",
       },
     ],
     locale: "en_AE",
@@ -57,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Light Recovery | 24/7 Fast Car Towing in Dubai",
+    title: "DR Light Recovery | 24/7 Car Recovery & Towing in Dubai",
     description:
-      "Stranded on the road? We provide 24/7 emergency towing and roadside assistance anywhere in Dubai.",
+      "24/7 emergency car recovery and towing across Dubai. Fast, reliable vehicle transportation.",
     images: ["/branded-truck.png"],
   },
   robots: {
@@ -79,14 +75,14 @@ export const metadata: Metadata = {
 const automotiveBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "AutomotiveBusiness",
-  "@id": "https://drlight-recovery.vercel.app/#organization",
-  name: "Dr. Light Recovery",
-  alternateName: ["Dr Light Recovery Dubai", "Dr Light Towing Service"],
-  url: "https://drlight-recovery.vercel.app",
-  logo: "https://drlight-recovery.vercel.app/branded-truck.png",
-  image: "https://drlight-recovery.vercel.app/branded-truck.png",
+  "@id": "https://www.drlightrecovery.com/#organization",
+  name: "DR Light Recovery",
+  alternateName: ["DR Light Recovery Dubai", "DR Light Car Towing Service"],
+  url: "https://www.drlightrecovery.com",
+  logo: "https://www.drlightrecovery.com/branded-truck.png",
+  image: "https://www.drlightrecovery.com/branded-truck.png",
   description:
-    "24/7 Emergency car recovery, flatbed towing, sports car transport, flat tyre repair, and 4x4 desert recovery services in Dubai, UAE.",
+    "24/7 Emergency car recovery, car towing, breakdown assistance, luxury sports car transport, and motorcycle recovery in Dubai, UAE.",
   telephone: "+971528787066",
   priceRange: "$$",
   address: {
@@ -118,71 +114,71 @@ const automotiveBusinessJsonLd = {
   ],
   areaServed: [
     { "@type": "City", name: "Dubai" },
-    { "@type": "City", name: "Abu Dhabi" },
-    { "@type": "City", name: "Sharjah" },
-    { "@type": "City", name: "Ajman" },
+    { "@type": "AdministrativeArea", name: "Downtown Dubai" },
+    { "@type": "AdministrativeArea", name: "Dubai Marina" },
+    { "@type": "AdministrativeArea", name: "Business Bay" },
+    { "@type": "AdministrativeArea", name: "JBR" },
+    { "@type": "AdministrativeArea", name: "JLT" },
+    { "@type": "AdministrativeArea", name: "Al Barsha" },
+    { "@type": "AdministrativeArea", name: "Al Quoz" },
+    { "@type": "AdministrativeArea", name: "Deira" },
+    { "@type": "AdministrativeArea", name: "Bur Dubai" },
+    { "@type": "AdministrativeArea", name: "Jebel Ali" },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Towing Services",
+    name: "Vehicle Recovery & Towing Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "General Flatbed Car Towing",
-          description: "Scratch-free towing for everyday cars and SUVs across Dubai.",
+          name: "Car Recovery Dubai",
+          description: "24/7 car recovery for breakdown, accident and disabled vehicles across Dubai.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "VIP & Sports Car Recovery",
-          description: "Zero-angle hydraulic flatbeds for luxury and supercars.",
+          name: "Emergency Car Recovery Dubai",
+          description: "Urgent vehicle recovery assistance for stranded and non-starting vehicles in Dubai.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "4x4 Desert & Off-Road Winching",
-          description: "Specialized desert pull-out for vehicles stuck in sand dunes.",
+          name: "Car Towing Service Dubai",
+          description: "Safe flatbed and wheel-lift towing for sedans, SUVs, and 4x4 vehicles in Dubai.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Breakdown Recovery Dubai",
+          description: "Safe vehicle transportation for mechanical and non-starting breakdowns in Dubai.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Luxury & Sports Car Towing Dubai",
+          description: "Specialized low-clearance hydraulic flatbed towing for exotic and performance cars.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Motorbike Recovery Dubai",
+          description: "Motorcycle, scooter, and bike recovery and transport across Dubai.",
         },
       },
     ],
   },
-};
-
-const faqPageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How fast can Dr. Light Recovery reach my location in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our average arrival time is 15 to 25 minutes anywhere in Dubai, including Sheikh Zayed Road, Dubai Marina, Downtown, and Al Barsha.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is my sports car safe during flatbed towing?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, we use specialized zero-angle hydraulic flatbed tow trucks designed specifically for low clearance supercars to guarantee zero scratches.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you provide 24/7 desert off-road recovery in Dubai?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes! We operate heavy-duty 4x4 assistance vehicles equipped with winches to pull out vehicles stuck in deep sand dunes 24/7.",
-      },
-    },
-  ],
 };
 
 export default function RootLayout({
@@ -191,17 +187,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark scroll-smooth">
       <head>
-        <meta name="google-site-verification" content="oO7Hoem-rJpvXV0GunmSSGj7yKZxJKU7_PBgXmsfvN4" />
-        {/* Inject JSON-LD Schema.org Structured Data */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta name="theme-color" content="#000000" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(automotiveBusinessJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
         />
       </head>
       <body className="font-sans antialiased bg-black text-white">{children}</body>
