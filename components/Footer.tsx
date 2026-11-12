@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="pt-2 text-xs text-neutral-300 space-y-1">
               <p>📍 Dubai, United Arab Emirates</p>
-              <p>📞 +971 52 878 7066</p>
+              <p>📞 052 878 7066</p>
               <p>⏱ Available 24 Hours / 7 Days</p>
             </div>
           </div>
@@ -34,18 +34,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/emergency-car-recovery-dubai" className="hover:text-yellow-400 transition-colors">
-                  Emergency Car Recovery
-                </Link>
-              </li>
-              <li>
                 <Link href="/car-towing-dubai" className="hover:text-yellow-400 transition-colors">
-                  Car Towing Service Dubai
+                  Car Towing Service
                 </Link>
               </li>
               <li>
                 <Link href="/breakdown-recovery-dubai" className="hover:text-yellow-400 transition-colors">
-                  Breakdown Recovery Dubai
+                  Breakdown Recovery
+                </Link>
+              </li>
+              <li>
+                <Link href="/emergency-car-recovery-dubai" className="hover:text-yellow-400 transition-colors">
+                  Emergency Car Recovery
                 </Link>
               </li>
               <li>
@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/motorbike-recovery-dubai" className="hover:text-yellow-400 transition-colors">
-                  Motorbike Recovery Dubai
+                  Motorcycle Recovery
                 </Link>
               </li>
             </ul>
@@ -91,19 +91,21 @@ export default function Footer() {
               Stranded on a Dubai road or need a tow truck right now? Call our 24/7 dispatch desk or message on WhatsApp.
             </p>
             <div className="flex flex-col gap-2.5 pt-1">
+              {/* Call Now -> Direct Dialer */}
               <a
                 href="tel:+971528787066"
                 className="w-full py-2.5 px-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-lg text-center transition-colors shadow-md"
               >
-                📞 Call Now: +971 52 878 7066
+                📞 Call Now: 052 878 7066
               </a>
+              {/* WhatsApp -> Direct WhatsApp */}
               <a
-                href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery"
+                href="https://wa.me/971528787066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-lg text-center transition-colors shadow-md"
               >
-                💬 WhatsApp Dispatch
+                💬 WhatsApp
               </a>
             </div>
           </div>
@@ -114,7 +116,8 @@ export default function Footer() {
           <div className="flex gap-4">
             <Link href="/" className="hover:text-neutral-400">Home</Link>
             <Link href="/car-recovery-dubai" className="hover:text-neutral-400">Services</Link>
-            <a href="tel:+971528787066" className="hover:text-neutral-400">Contact</a>
+            <a href="tel:+971528787066" className="hover:text-neutral-400">Call Us</a>
+            <a href="https://wa.me/971528787066" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400">WhatsApp</a>
           </div>
         </div>
       </div>

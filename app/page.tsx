@@ -16,15 +16,16 @@ export default function Home() {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
+  // Section 3: Exactly the 6 approved services with dedicated Learn More buttons
   const services = [
     {
-      title: "Car Recovery",
+      title: "Car Recovery Dubai",
       href: "/car-recovery-dubai",
       desc: "Reliable car recovery across Dubai for vehicles that cannot be driven or need to be safely transported. Share your location and vehicle details with our team to arrange the appropriate recovery service.",
       badge: "24/7 Service"
     },
     {
-      title: "Car Towing",
+      title: "Car Towing Service",
       href: "/car-towing-dubai",
       desc: "Our car towing service in Dubai helps move vehicles safely from their current location to a workshop, home, or another required destination.",
       badge: "Safe Transport"
@@ -52,12 +53,6 @@ export default function Home() {
       href: "/motorbike-recovery-dubai",
       desc: "If your motorcycle cannot be ridden or needs to be transported, our motorcycle recovery service in Dubai can help move your bike safely.",
       badge: "Specialized Cradle"
-    },
-    {
-      title: "Flatbed Towing",
-      href: "/car-towing-dubai",
-      desc: "Flatbed towing provides a secure way to transport vehicles when they need to be moved without being driven. Our recovery team can arrange suitable vehicle transportation based on your vehicle and recovery requirements.",
-      badge: "Hydraulic Beds"
     }
   ];
 
@@ -134,17 +129,17 @@ export default function Home() {
               Need reliable car recovery in Dubai? DR Light Recovery provides professional car recovery and towing services across Dubai. Whether your vehicle has broken down, needs towing, or requires safe transportation, our team is available 24/7 to help.
             </p>
 
-            {/* CTAs */}
+            {/* CTAs: Call Now -> tel: | WhatsApp Now -> https://wa.me/ */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <a
                 href="tel:+971528787066"
                 className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl shadow-yellow-500/20 flex items-center justify-center gap-2 active:scale-95"
               >
                 <span>📞</span>
-                <span>Call Now: +971 52 878 7066</span>
+                <span>Call Now: 052 878 7066</span>
               </a>
               <a
-                href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20vehicle%20recovery%20in%20Dubai."
+                href="https://wa.me/971528787066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all duration-200 shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2 active:scale-95"
@@ -216,7 +211,8 @@ export default function Home() {
         </section>
 
         {/* ================= 3. OUR CAR RECOVERY & TOWING SERVICES ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-y border-neutral-900">
+        {/* Requirement: Card is NOT clickable. Only "Learn More" button links to dedicated page. */}
+        <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-y border-neutral-900">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
@@ -227,7 +223,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Note: PRD rule 14 specifically says NO individual contact buttons inside cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((srv, idx) => (
                 <div
@@ -238,20 +233,22 @@ export default function Home() {
                     <div className="inline-block px-2.5 py-1 rounded bg-neutral-900 text-yellow-400 text-[11px] font-bold uppercase tracking-wider mb-4">
                       {srv.badge}
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-3 hover:text-yellow-400 transition-colors">
-                      <Link href={srv.href}>{srv.title}</Link>
+                    <h3 className="text-lg font-bold text-white mb-3">
+                      {srv.title}
                     </h3>
-                    <p className="text-neutral-400 text-xs leading-relaxed mb-4">
+                    <p className="text-neutral-400 text-xs leading-relaxed mb-6">
                       {srv.desc}
                     </p>
                   </div>
-                  <Link
-                    href={srv.href}
-                    className="inline-flex items-center text-xs font-semibold text-yellow-500 hover:text-yellow-400 tracking-wider uppercase group"
-                  >
-                    <span>Read Details</span>
-                    <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
+                  <div>
+                    <Link
+                      href={srv.href}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-neutral-900 hover:bg-yellow-500 hover:text-black text-xs font-bold text-yellow-400 tracking-wider uppercase transition-colors group"
+                    >
+                      <span>Learn More</span>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
@@ -271,14 +268,16 @@ export default function Home() {
               Our recovery near me service is designed to make it easier to get professional vehicle recovery wherever you are in Dubai.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* Call -> Phone dialer */}
               <a
                 href="tel:+971528787066"
                 className="w-full sm:w-auto px-7 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
               >
                 Find Car Recovery Near Me
               </a>
+              {/* Other contact -> WhatsApp */}
               <a
-                href="https://wa.me/971528787066?text=I%20need%20car%20recovery%20near%20me%20in%20Dubai"
+                href="https://wa.me/971528787066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors"
@@ -317,6 +316,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
+              {/* Call -> Phone dialer */}
               <a
                 href="tel:+971528787066"
                 className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
@@ -363,6 +363,7 @@ export default function Home() {
           </div>
 
           <div className="text-center">
+            {/* Call button -> Phone dialer */}
             <a
               href="tel:+971528787066"
               className="inline-block px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-red-600/20"
@@ -419,6 +420,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
+              {/* Call -> Phone dialer */}
               <a
                 href="tel:+971528787066"
                 className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
@@ -458,8 +460,11 @@ export default function Home() {
             <p className="text-xs sm:text-sm text-neutral-400 mb-6">
               Need recovery in another part of Dubai? Share your exact location with our team and we&apos;ll assess the recovery requirements.
             </p>
+            {/* Request Assistance / Other contact -> WhatsApp */}
             <a
-              href="tel:+971528787066"
+              href="https://wa.me/971528787066"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
             >
               Request Recovery
@@ -514,8 +519,11 @@ export default function Home() {
             </div>
 
             <div className="text-center">
+              {/* Request Assistance / Other contact -> WhatsApp */}
               <a
-                href="tel:+971528787066"
+                href="https://wa.me/971528787066"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
               >
                 Request Car Recovery
@@ -563,8 +571,11 @@ export default function Home() {
           </div>
 
           <div className="text-center">
+            {/* Get a Quote / Non-call contact -> WhatsApp */}
             <a
-              href="tel:+971528787066"
+              href="https://wa.me/971528787066"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
             >
               Get a Recovery Quote
@@ -621,7 +632,7 @@ export default function Home() {
         </section>
 
         {/* ================= 12. FREQUENTLY ASKED QUESTIONS ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
               Frequently Asked Questions About Car Recovery in Dubai
@@ -667,15 +678,16 @@ export default function Home() {
               Whether your vehicle has broken down, needs towing, or requires safe transportation, DR Light Recovery is available 24/7 across Dubai. Contact our team, share your location and vehicle details, and get the recovery process started.
             </p>
 
+            {/* Call Now -> tel: | WhatsApp Now -> https://wa.me/ */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <a
                 href="tel:+971528787066"
                 className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
               >
-                📞 Call Now: +971 52 878 7066
+                📞 Call Now: 052 878 7066
               </a>
               <a
-                href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20vehicle%20recovery%20in%20Dubai."
+                href="https://wa.me/971528787066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
