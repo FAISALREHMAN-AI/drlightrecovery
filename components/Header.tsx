@@ -176,7 +176,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-neutral-300 hover:text-yellow-400"
           >
-            Contact Us
+Contact Us
           </a>
 
           {/* Action Buttons */}

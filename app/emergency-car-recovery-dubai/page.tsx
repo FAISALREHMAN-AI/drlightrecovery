@@ -465,7 +465,9 @@ export default function EmergencyCarRecoveryDubaiPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:+971528787066"
+                href="https://wa.me/971528787066"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
               >
                 Get a Recovery Quote
