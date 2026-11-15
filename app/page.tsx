@@ -112,15 +112,28 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-yellow-500 selection:text-black">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-yellow-500 selection:text-black relative">
+      {/* ================= FIXED FULL HOMEPAGE BACKGROUND ================= */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        style={{
+          backgroundImage: "url('/homepage-bg.jpg')",
+          backgroundAttachment: "fixed",
+        }}
+        aria-hidden="true"
+      >
+        {/* Dark overlay to ensure contrast and readability while showcasing the image */}
+        <div className="absolute inset-0 bg-black/75 md:bg-black/70 backdrop-blur-[1px]" />
+      </div>
+
       <Header />
 
-      <main className="pt-20">
+      <main className="pt-20 relative z-10">
 
         {/* ================= 1. HERO SECTION ================= */}
         <section className="relative min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-          {/* Background layers */}
-          <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-black to-black" />
+          {/* Subtle gradient highlights */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(234,179,8,0.12),transparent)]" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent" />
 
@@ -203,7 +216,7 @@ export default function Home() {
         </section>
 
         {/* ================= 2. KEY TRUST PILLARS ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-900 bg-gradient-to-b from-black to-neutral-950">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-800/60 bg-black/60 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Why DR Light Recovery</p>
@@ -272,7 +285,7 @@ export default function Home() {
         </section>
 
         {/* ================= 3. OUR SERVICES ================= */}
-        <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-black border-y border-neutral-900">
+        <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-black/75 backdrop-blur-md border-y border-neutral-800/80">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">What We Offer</p>
@@ -323,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* ================= 4. CAR RECOVERY NEAR ME ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/60 backdrop-blur-sm">
           <div className="max-w-5xl mx-auto">
             <div className="relative p-10 sm:p-14 rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-950 to-black border border-neutral-800 overflow-hidden">
               {/* Background glow */}
@@ -369,7 +382,7 @@ export default function Home() {
         </section>
 
         {/* ================= 5. TOWING SERVICES ACROSS DUBAI ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/70 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Towing Solutions</p>
@@ -421,7 +434,7 @@ export default function Home() {
         </section>
 
         {/* ================= 6. 24/7 EMERGENCY CAR RECOVERY ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/65 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-widest mb-5">
@@ -495,7 +508,7 @@ export default function Home() {
         </section>
 
         {/* ================= 7. WHAT TO DO WHEN YOUR CAR BREAKS DOWN ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/70 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Step-by-Step Guide</p>
@@ -556,7 +569,7 @@ export default function Home() {
         </section>
 
         {/* ================= 8. COVERAGE AREAS (GEO) ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/65 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Areas We Serve</p>
@@ -599,7 +612,7 @@ export default function Home() {
         </section>
 
         {/* ================= 9. HOW IT WORKS ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/70 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">The Process</p>
@@ -666,7 +679,7 @@ export default function Home() {
         </section>
 
         {/* ================= 10. PRICING FACTORS ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/65 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Transparent Pricing</p>
@@ -726,7 +739,7 @@ export default function Home() {
         </section>
 
         {/* ================= 11. VEHICLE TYPES ================= */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/70 backdrop-blur-sm border-t border-neutral-800/60">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">All Vehicle Types</p>
@@ -772,7 +785,7 @@ export default function Home() {
         </section>
 
         {/* ================= 12. FAQ ================= */}
-        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-black/75 backdrop-blur-md border-t border-neutral-800/80">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-3">Common Questions</p>
@@ -814,7 +827,7 @@ export default function Home() {
         </section>
 
         {/* ================= 13. FINAL CTA ================= */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900 relative overflow-hidden">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black/75 backdrop-blur-md border-t border-neutral-800/80 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgba(234,179,8,0.08),transparent)]" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
 
