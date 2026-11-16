@@ -141,7 +141,7 @@ export default function Header() {
           {/* Direct Phone Dialer Button */}
           <a
             href="tel:+971528787066"
-            className="px-4 py-2.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md shadow-yellow-500/20 flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-lg bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md shadow-[#E53935]/20 flex items-center gap-1.5"
           >
             <span>📞</span>
             <span>052 878 7066</span>
@@ -283,7 +283,7 @@ export default function Header() {
             {/* Call Now -> Direct Dialer */}
             <a
               href="tel:+971528787066"
-              className="w-full py-3 text-center bg-yellow-500 text-black font-extrabold text-xs uppercase tracking-wider rounded-lg shadow-md"
+              className="w-full py-3 text-center bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow-md transition-colors"
             >
               📞 Call Now: 052 878 7066
             </a>
@@ -292,7 +292,7 @@ export default function Header() {
               href="https://wa.me/971528787066"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 text-center bg-emerald-600 text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow-md"
+              className="w-full py-3 text-center bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-xs uppercase tracking-wider rounded-lg shadow-md transition-colors"
             >
               💬 WhatsApp Us
             </a>

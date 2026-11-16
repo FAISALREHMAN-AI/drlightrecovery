@@ -153,7 +153,7 @@ export default function BreakdownRecoveryDubaiPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <a
               href="tel:+971528787066"
-              className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#E53935]/20 active:scale-95"
             >
               📞 Call Now: +971 52 878 7066
             </a>
@@ -161,7 +161,7 @@ export default function BreakdownRecoveryDubaiPage() {
               href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20my%20car%20has%20broken%20down%20in%20Dubai."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#25D366]/20 active:scale-95"
             >
               💬 WhatsApp Now
             </a>
@@ -389,7 +389,7 @@ export default function BreakdownRecoveryDubaiPage() {
           <div className="text-center">
             <a
               href="tel:+971528787066"
-              className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              className="inline-block px-8 py-3.5 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-[#E53935]/20"
             >
               Get Breakdown Recovery Assistance
             </a>
@@ -407,7 +407,7 @@ export default function BreakdownRecoveryDubaiPage() {
             </p>
             <a
               href="tel:+971528787066"
-              className="inline-block px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              className="inline-block px-8 py-3.5 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-[#E53935]/20"
             >
               Call for a Quote
             </a>
@@ -476,7 +476,7 @@ export default function BreakdownRecoveryDubaiPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:+971528787066"
-                className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
+                className="w-full sm:w-auto px-8 py-4 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#E53935]/20 active:scale-95"
               >
                 📞 Call Now: +971 52 878 7066
               </a>
@@ -484,7 +484,7 @@ export default function BreakdownRecoveryDubaiPage() {
                 href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20breakdown%20recovery%20in%20Dubai."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
+                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#25D366]/20 active:scale-95"
               >
                 💬 WhatsApp Now
               </a>

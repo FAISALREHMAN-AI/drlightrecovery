@@ -156,7 +156,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <a
               href="tel:+971528787066"
-              className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#E53935]/20 active:scale-95"
             >
               📞 Call Now for Luxury Car Recovery
             </a>
@@ -164,7 +164,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
               href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20a%20quote%20for%20luxury/sports%20car%20towing."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#25D366]/20 active:scale-95"
             >
               💬 WhatsApp for a Recovery Quote
             </a>
@@ -470,7 +470,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
               href="https://wa.me/971528787066"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-[#25D366]/20"
             >
               Request a Luxury Car Towing Quote
             </a>
@@ -478,7 +478,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
               href="https://wa.me/971528787066?text=I%20would%20like%20a%20quote%20for%20luxury%20car%20towing."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg shadow-[#25D366]/20"
             >
               WhatsApp for a Recovery Quote
             </a>
@@ -548,7 +548,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="tel:+971528787066"
-              className="w-full sm:w-auto px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-yellow-500/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#E53935]/20 active:scale-95"
             >
               📞 Call Now for Luxury Car Towing
             </a>
@@ -556,7 +556,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
               href="https://wa.me/971528787066?text=Hello%20DR%20Light%20Recovery,%20I%20need%20assistance%20with%20a%20luxury/sports%20car."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-[#25D366]/20 active:scale-95"
             >
               💬 WhatsApp for Recovery Assistance
             </a>

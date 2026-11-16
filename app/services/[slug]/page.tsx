@@ -116,7 +116,7 @@ export default async function LocationPage({ params }: PageProps) {
           </Link>
           <a
             href="tel:+971528787066"
-            className="px-5 py-2.5 bg-yellow-500 text-black font-extrabold rounded-full text-sm shadow-[0_0_15px_rgba(234,179,8,0.5)]"
+            className="px-5 py-2.5 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold rounded-full text-sm shadow-md shadow-[#E53935]/20 transition-colors"
           >
             📞 052 878 7066
           </a>
@@ -138,7 +138,7 @@ export default async function LocationPage({ params }: PageProps) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="tel:+971528787066"
-            className="w-full sm:w-auto px-8 py-4 bg-yellow-500 text-black font-extrabold text-lg rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.5)] hover:bg-yellow-400 transition"
+            className="w-full sm:w-auto px-8 py-4 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-lg rounded-xl shadow-lg shadow-[#E53935]/20 transition"
           >
             📞 Call Towing Now: 052 878 7066
           </a>
@@ -148,7 +148,7 @@ export default async function LocationPage({ params }: PageProps) {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 bg-green-500 text-white font-extrabold text-lg rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:bg-green-400 transition"
+            className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-lg rounded-xl shadow-lg shadow-[#25D366]/20 transition"
           >
             💬 Send WhatsApp GPS Pin
           </a>
@@ -196,7 +196,7 @@ export default async function LocationPage({ params }: PageProps) {
         </p>
         <a
           href="tel:+971528787066"
-          className="inline-block px-10 py-5 bg-yellow-500 text-black font-extrabold text-xl rounded-xl shadow-[0_0_25px_rgba(234,179,8,0.6)]"
+          className="inline-block px-10 py-5 bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-xl rounded-xl shadow-lg shadow-[#E53935]/20 transition-all"
         >
           📞 Dispatch Driver Now (052 878 7066)
         </a>

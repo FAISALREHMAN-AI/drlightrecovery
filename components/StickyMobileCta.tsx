@@ -14,7 +14,7 @@ export default function StickyMobileCta({
       {/* Direct Phone Call */}
       <a
         href="tel:+971528787066"
-        className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-yellow-500/20 active:scale-95"
+        className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#E53935] hover:bg-[#C62828] text-white font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-[#E53935]/20 active:scale-95"
       >
         <span>📞</span>
         <span>{callLabel}</span>
@@ -24,7 +24,7 @@ export default function StickyMobileCta({
         href="https://wa.me/971528787066"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-emerald-600/20 active:scale-95"
+        className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1DA851] text-white font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-[#25D366]/20 active:scale-95"
       >
         <span>💬</span>
         <span>{whatsappLabel}</span>
