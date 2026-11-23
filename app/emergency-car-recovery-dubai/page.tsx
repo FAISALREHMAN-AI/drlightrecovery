@@ -605,7 +605,7 @@ export default function EmergencyCarRecoveryDubaiPage() {
               </div>
               <h3 className="text-white font-bold text-base mb-2 group-hover:text-yellow-400 transition-colors">Suitable Recovery Equipment</h3>
               <p className="text-neutral-400 text-xs leading-relaxed">
-                Recovery equipment should match the vehicle and the situation, including zero-angle hydraulic beds for <Link href="/luxury-sports-car-towing-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">luxury and sports car towing</Link> and dedicated equipment for <Link href="/motorbike-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency motorcycle recovery</Link>.
+                Recovery equipment should match the vehicle and the situation, including suitable equipment for <Link href="/luxury-sports-car-towing-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">luxury and sports car towing</Link> and dedicated equipment for <Link href="/motorbike-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency motorcycle recovery</Link>.
               </p>
             </div>
 
