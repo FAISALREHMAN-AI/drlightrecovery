@@ -22,42 +22,48 @@ export default function Home() {
       href: "/car-recovery-dubai",
       desc: "Reliable car recovery across Dubai for vehicles that cannot be driven or need to be safely transported. Share your location and vehicle details with our team to arrange the appropriate recovery service.",
       badge: "24/7 Service",
-      icon: "🚗"
+      icon: "🚗",
+      anchorText: "Car Recovery Service in Dubai",
     },
     {
       title: "Car Towing Service",
       href: "/car-towing-dubai",
       desc: "Our car towing service in Dubai helps move vehicles safely from their current location to a workshop, home, or another required destination.",
       badge: "Safe Transport",
-      icon: "🚛"
+      icon: "🚛",
+      anchorText: "Professional Car Towing Service",
     },
     {
       title: "Breakdown Recovery",
       href: "/breakdown-recovery-dubai",
       desc: "If your vehicle breaks down and you cannot continue your journey, our breakdown recovery service in Dubai can help arrange safe transportation for your vehicle.",
       badge: "Quick Dispatch",
-      icon: "⚙️"
+      icon: "⚙️",
+      anchorText: "Roadside Breakdown Recovery",
     },
     {
       title: "Emergency Car Recovery",
       href: "/emergency-car-recovery-dubai",
       desc: "Vehicle problems can happen unexpectedly. Our 24/7 emergency car recovery service in Dubai helps customers arrange professional recovery when their vehicle cannot safely continue.",
       badge: "Urgent Response",
-      icon: "🚨"
+      icon: "🚨",
+      anchorText: "Emergency Car Recovery",
     },
     {
       title: "Luxury & Sports Car Towing",
       href: "/luxury-sports-car-towing-dubai",
       desc: "Luxury and sports vehicles require careful handling during transportation. Our luxury car towing service in Dubai focuses on secure handling and suitable vehicle transportation.",
       badge: "Zero-Angle Flatbed",
-      icon: "🏎️"
+      icon: "🏎️",
+      anchorText: "Luxury & Sports Car Towing",
     },
     {
       title: "Motorcycle Recovery",
       href: "/motorbike-recovery-dubai",
       desc: "If your motorcycle cannot be ridden or needs to be transported, our motorcycle recovery service in Dubai can help move your bike safely.",
       badge: "Specialized Cradle",
-      icon: "🏍️"
+      icon: "🏍️",
+      anchorText: "Motorbike Recovery Service",
     }
   ];
 
@@ -325,7 +331,7 @@ export default function Home() {
                       href={srv.href}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-800 hover:bg-yellow-500 hover:text-black text-sm font-bold text-yellow-400 tracking-wide transition-all duration-200 group/btn"
                     >
-                      <span>Learn More</span>
+                      <span>{srv.anchorText}</span>
                       <span className="group-hover/btn:translate-x-1 transition-transform duration-200">→</span>
                     </Link>
                   </div>

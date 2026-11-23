@@ -202,7 +202,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
             </h2>
             <div className="p-8 rounded-2xl bg-black/60 border border-neutral-800/80 mb-6 max-w-3xl mx-auto">
               <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
-                Luxury and performance vehicles can require a different approach from standard car towing. Vehicle clearance, loading position, condition and suitable recovery equipment should be considered before transportation.
+                Luxury and performance vehicles can require a different approach from a standard <Link href="/car-towing-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">professional car towing service</Link>. Vehicle clearance, loading position, condition and suitable recovery equipment should be considered before transportation.
               </p>
               <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
                 Our recovery process focuses on understanding the vehicle and recovery situation first, then arranging an appropriate towing solution.
@@ -298,7 +298,7 @@ export default function LuxurySportsCarTowingDubaiPage() {
               <div className="p-7 rounded-2xl bg-black/60 border border-neutral-800/80 hover:border-yellow-500/40 transition-all duration-300 group">
                 <h3 className="text-white font-bold text-base sm:text-lg mb-2 group-hover:text-yellow-400 transition-colors">Accident or Vehicle Damage</h3>
                 <p className="text-neutral-400 text-xs leading-relaxed">
-                  After an accident, continuing to drive may not be suitable depending on the vehicle’s condition. A recovery service can help transport the damaged vehicle to the required destination.
+                  After an accident, continuing to drive may not be suitable depending on the vehicle’s condition. A dedicated <Link href="/emergency-car-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency car recovery service</Link> can help transport the damaged vehicle to the required destination.
                 </p>
               </div>
 

@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="relative z-20 bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800 text-neutral-300 text-sm pt-16 pb-36 md:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* SECTION 1 — COMPANY BRANDING */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
@@ -44,7 +44,73 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SECTION 2 — CONTACT US */}
+          {/* SECTION 2 — OUR SERVICES */}
+          <div className="space-y-4">
+            <h4 className="text-white font-extrabold text-sm uppercase tracking-widest border-l-2 border-yellow-500 pl-2.5">
+              Our Services
+            </h4>
+            <p className="text-xs text-neutral-400 leading-relaxed">
+              Professional 24/7 vehicle assistance across all areas of Dubai:
+            </p>
+            <ul className="space-y-2.5 text-xs text-neutral-300">
+              <li>
+                <Link
+                  href="/car-recovery-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Car Recovery Dubai</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/car-towing-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Car Towing Service</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/breakdown-recovery-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Breakdown Recovery</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/emergency-car-recovery-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Emergency Car Recovery</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/luxury-sports-car-towing-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Luxury & Sports Car Towing</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/motorbike-recovery-dubai"
+                  className="hover:text-yellow-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-yellow-500 text-[10px]">▸</span>
+                  <span>Motorbike Recovery</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* SECTION 3 — CONTACT US */}
           <div className="space-y-4">
             <h4 className="text-white font-extrabold text-sm uppercase tracking-widest border-l-2 border-yellow-500 pl-2.5">
               Contact Us
@@ -95,7 +161,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SECTION 3 — FOLLOW US */}
+          {/* SECTION 4 — FOLLOW US */}
           <div className="space-y-4">
             <h4 className="text-white font-extrabold text-sm uppercase tracking-widest border-l-2 border-yellow-500 pl-2.5">
               Follow Us

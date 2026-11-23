@@ -202,13 +202,13 @@ export default function MotorbikeRecoveryDubaiPage() {
             </h2>
             <div className="p-8 rounded-2xl bg-black/60 border border-neutral-800/80 mb-6 max-w-3xl mx-auto text-left">
               <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
-                A motorcycle that cannot be ridden does not always need roadside repair. If the bike cannot safely continue, recovery may be the more practical option.
+                A motorcycle that cannot be ridden does not always need roadside repair. If the bike cannot safely continue, our <Link href="/breakdown-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">roadside breakdown assistance</Link> network can arrange suitable transport when on-site fixes are not practical.
               </p>
               <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
                 DR Light Recovery can assess the situation and arrange transportation based on the motorcycle’s condition, location and destination.
               </p>
               <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
-                Whether the bike has stopped on the roadside, is parked at home, has been involved in an accident or needs to reach a workshop, provide the location and motorcycle details when contacting the recovery team.
+                Whether the bike has stopped on the roadside, is parked at home, has been involved in an accident or needs urgent <Link href="/emergency-car-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency vehicle recovery</Link>, provide the location and motorcycle details when contacting the recovery team.
               </p>
             </div>
           </div>
