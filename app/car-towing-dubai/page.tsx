@@ -261,7 +261,7 @@ export default function CarTowingDubaiPage() {
             Fast Car Towing Near You Across Dubai
           </h2>
           <p className="text-neutral-300 text-sm sm:text-base max-w-2xl mx-auto mb-4 leading-relaxed">
-            A vehicle may need towing after a breakdown, mechanical problem, accident or when it simply needs to be transported to another location.
+            A vehicle may need towing after an unexpected mechanical fault requiring <Link href="/breakdown-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">roadside breakdown recovery</Link>, following an accident that calls for immediate <Link href="/emergency-car-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency car recovery</Link>, or when it simply needs to be transported to another location.
           </p>
           <p className="text-neutral-400 text-xs sm:text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
             DR Light Recovery provides towing assistance across Dubai. If you’re searching for car towing near me, tow truck near me or towing service near me, contact our team with your location and vehicle details. Response time can depend on your location, traffic and current demand.

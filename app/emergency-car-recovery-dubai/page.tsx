@@ -456,7 +456,7 @@ export default function EmergencyCarRecoveryDubaiPage() {
                   href="/breakdown-recovery-dubai"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-500 hover:text-yellow-400 transition-colors"
                 >
-                  <span>Learn about breakdown recovery service</span>
+                  <span>Roadside Breakdown Recovery</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -484,7 +484,7 @@ export default function EmergencyCarRecoveryDubaiPage() {
                   href="/car-towing-dubai"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-500 hover:text-yellow-400 transition-colors"
                 >
-                  <span>Explore car towing service options</span>
+                  <span>Flatbed Car Towing Service</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -605,7 +605,7 @@ export default function EmergencyCarRecoveryDubaiPage() {
               </div>
               <h3 className="text-white font-bold text-base mb-2 group-hover:text-yellow-400 transition-colors">Suitable Recovery Equipment</h3>
               <p className="text-neutral-400 text-xs leading-relaxed">
-                Recovery equipment should match the vehicle and the situation to support appropriate vehicle handling.
+                Recovery equipment should match the vehicle and the situation, including zero-angle hydraulic beds for <Link href="/luxury-sports-car-towing-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">luxury and sports car towing</Link> and dedicated equipment for <Link href="/motorbike-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">emergency motorcycle recovery</Link>.
               </p>
             </div>
 

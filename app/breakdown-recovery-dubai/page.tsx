@@ -211,7 +211,7 @@ export default function BreakdownRecoveryDubaiPage() {
                 Car problems can happen unexpectedly. Whether your vehicle stops working, will not start, develops a mechanical problem, or becomes unsafe to drive, breakdown recovery can help move it safely.
               </p>
               <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
-                DR Light Recovery provides assistance for drivers who need a suitable recovery solution for a vehicle that cannot continue its journey. If you need a reliable car breakdown service near me or breakdown recovery in Dubai, our team is equipped to assist.
+                As part of our comprehensive <Link href="/car-recovery-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">car recovery service in Dubai</Link>, DR Light Recovery provides assistance for drivers who need a suitable solution for a vehicle that cannot continue its journey. If you need a reliable car breakdown service near me or breakdown recovery in Dubai, our team is equipped to assist.
               </p>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function BreakdownRecoveryDubaiPage() {
                 href="/emergency-car-recovery-dubai"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-500 hover:text-yellow-400 transition-colors"
               >
-                <span>View Emergency Car Recovery Dubai</span>
+                <span>Emergency Car Recovery Service</span>
                 <span>→</span>
               </Link>
             </div>
@@ -322,7 +322,7 @@ export default function BreakdownRecoveryDubaiPage() {
                 </div>
                 <h3 className="text-white font-bold text-base mb-2 group-hover:text-yellow-400 transition-colors">Suitable Recovery Equipment</h3>
                 <p className="text-neutral-400 text-xs leading-relaxed">
-                  Recovery equipment is selected to match the vehicle type and situation, including flatbeds for secure transportation.
+                  Recovery equipment is selected to match the vehicle type and situation, including <Link href="/car-towing-dubai" className="text-yellow-400 hover:text-yellow-300 underline underline-offset-4 transition-colors font-medium">flatbed car towing service</Link> options for secure workshop transportation.
                 </p>
               </div>
 
